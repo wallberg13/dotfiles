@@ -1,0 +1,22 @@
+O que instalar para o urxvt:
+  tmux: Usar multiplas shells em uma mesma janela.
+
+Deamon para rodar por tras.
+Configuracao - Sempre na home:
+  Fica na .Xresources
+
+  Atualizar o urxvt: xrdb ~/.Xresources
+  Para colocar fonte nova:
+    URxvt.font: xft:monaco:size=10 (xft:nome da fonte:tamanho da fonte)
+
+  Scroll Bar: False --> Tirando a scroll bar
+  URxvt.scrollBar: false
+
+  E preciso tbm mudar o esquema de cores.
+
+  Utilizar as fonts ttf-hack
+
+  Pacotes utilizados:
+    - tmux
+    - ttf-hack
+
