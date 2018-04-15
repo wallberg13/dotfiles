@@ -2,8 +2,7 @@
 URxvt.font: xft:hack:pixelsize=14
 !! Aparencia - Meu tema Mate
 URxvt.scrollBar: false
-urxvt*foreground: #E9B96E
-urxvt*background: black
+URxvt*foreground: #E9B96E
 *color0:  #2E3436
 *color1:  #cc0000
 *color2:  #4E9A06
@@ -20,3 +19,6 @@ urxvt*background: black
 *color13: #AD7FA8
 *color14: #34E2E2
 *color15: #EEEEEC
+!! Transparencia
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0020/c000
