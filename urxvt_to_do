@@ -19,4 +19,16 @@ Configuracao - Sempre na home:
   Pacotes utilizados:
     - tmux
     - ttf-hack
+    - urxvt-fullscreen
+    - wmctrl
 
+  Extensions:
+    Localizacao das extensoes:
+      /usr/lib/urxvt/perl/
+  -> DICA DE SUDO: sudo !! (executa o ultimo comando como sudo)
+
+  URxvt.perl-ext-common: Nomes das extensões perl que estou utilizando.
+  URxvt.keysym.<tecla>: Configurando um atalho para fazer tal ação.
+
+  Falta extensoes para aumentar e diminuir letra, clicar em urls e outras
+  coisas que a necessidade vem com o tempo.

@@ -21,4 +21,8 @@ URxvt*foreground: #E9B96E
 *color15: #EEEEEC
 !! Transparencia
 URxvt*depth: 32
-URxvt*background: rgba:0000/0000/0020/c000
+URxvt*background: rgba:0000/0000/0200/ce00
+
+!! Extensões
+URxvt.perl-ext-common: fullscreen
+URxvt.keysym.F11: perl:fullscreen:switch
