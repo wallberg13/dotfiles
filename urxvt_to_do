@@ -20,6 +20,8 @@ Configuracao - Sempre na home:
     - tmux
     - ttf-hack
     - urxvt-fullscreen
+    - urxvt-resize-font-git
+    - urxvt-perls ---> Ja vem com o clipboard, urls clicaveis
     - wmctrl
 
   Extensions:
