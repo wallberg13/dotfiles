@@ -1,10 +1,10 @@
-set shiftwidth=2
-set tabstop=2
-set expandtab
+set shiftwidth=4
+set tabstop=4
+set noexpandtab
 set smarttab
 syntax on
-set smartindent
-set textwidth=76
+set autoindent
+set textwidth=80
 set autowrite
 set ruler
 set hidden
