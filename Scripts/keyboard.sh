@@ -1,2 +1,2 @@
 #!/bin/bash
-setxkbmap br,us -option 'grp:win_space_toggle'
+setxkbmap us,br -option 'grp:win_space_toggle'

@@ -23,7 +23,19 @@ Configuracao - Sempre na home:
     - urxvt-resize-font-git
     - urxvt-perls ---> Ja vem com o clipboard, urls clicaveis
     - wmctrl
-
+	- numlockx
+	- i3gaps
+	- dmenu
+	- awesome-terminal-fonts-git
+	- i3gaps-git
+	- i3blocks-gaps-git
+	- otf-san-francisco
+	- system-san-francisco-fonts-git
+	- lxappearance
+	- compton
+	- acpi
+	- sysstat
+	- pamixer
   Extensions:
     Localizacao das extensoes:
       /usr/lib/urxvt/perl/
