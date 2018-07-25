@@ -1,5 +1,5 @@
 !! Fontes
-URxvt.font: xft:hack:pixelsize=14
+URxvt.font: xft:hack:pixelsize=16
 !! Aparencia - Meu tema Mate
 URxvt.scrollBar: false
 URxvt*foreground: #E9B96E
