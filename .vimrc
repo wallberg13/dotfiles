@@ -33,6 +33,11 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap <C-Left> 	<C-W><C-Left>
+nnoremap <C-Right> 	<C-W><C-Right>
+nnoremap <C-Up> 	<C-W><C-Up>
+nnoremap <C-Down> 	<C-W><C-Down>
+
 
 set splitbelow
 set splitright

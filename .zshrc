@@ -35,9 +35,30 @@ alias zshrc='vim ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias i3config='vim ~/.config/i3/config'
 alias i3bar='vim ~/.config/i3/i3blocks.conf'
-alias pacman='sudo pacman --color=always'
+alias pacman='pacman --color=always'
 alias diff='diff --color=auto'
 alias dir='dir --color=auto'
 alias ls='ls --color=always'
 alias lh='ls --color=always -lh'
+
+# Projetos
+# TCC
 alias tcc='cd ~/TCC/PCMV-ACO-Sequencial'
+alias tcch='cd ~/TCC/PCMV-ACO-Sequencial ; vim samples.h -c "vsplit util.h" -c "split main.h"'
+alias tccc='cd ~/TCC/PCMV-ACO-Sequencial ; vim util.c -c "vsplit samples.c"'
+
+# Maratona Linux
+alias mm='cd ~/Maratona/maratona-meta'
+alias mf='cd ~/Maratona/maratona-firewall'
+alias gmm='cd ~/Git/maratona-meta'
+alias gmf='cd ~/Git/maratona-firewall'
+alias kc1='cd ~/Git/Minicurso-Kicad/Aula01-Instalacao'
+alias kc2='cd ~/Git/Minicurso-Kicad/Aula02-Atalhos-Filtro'
+
+# Seguranca Computacional
+alias sc='cd ~/Git/CP-UTFPR/Seguranca-Computacional/'
+alias sce='cd ~/Git/CP-UTFPR/Seguranca-Computacional/Exercicios/'
+alias scr='cd ~/Git/CP-UTFPR/Seguranca-Computacional/Relatorios/'
+
+# Desenvolvimento de dispositivos moveis.
+alias ddm='cd ~/Git/CP-UTFPR/Desenvolvimento_Moveis'

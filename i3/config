@@ -17,7 +17,7 @@ exec --no-startup-id dropbox start &
 exec --no-startup-id xset -b
 exec --no-startup-id nm-applet
 exec_always --no-startup-id compton
-set $mod Mod4
+set $mod Mod1
 
 # Teclas multimedia
 # Teclas de controle de execucao
@@ -36,7 +36,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 #Wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/g6o75dfsh2911.jpg
+exec_always --no-startup-id ~/Scripts/background.sh
 
 # Monitores - UTFPR e Casa
 bindsym $mod+u exec ~/Scripts/displayu.sh # UTF
@@ -50,7 +50,7 @@ bindsym $mod+F4 exec telegram-desktop
 
 
 # GAPS
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 #smart_gaps on
 #smart_borders on
 
@@ -81,7 +81,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# kill focused window
+#kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
@@ -140,7 +140,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+#bindsym $mod+q focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -184,6 +184,9 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 assign [class="TelegramDesktop"] workspace $ws8
 assign [class="Transmission-gtk"] workspace $ws9
 assign [class="Spotify"] workspace $ws10
+assign [class="Virt-manager"] workspace $ws7
+assign [class="VirtualBox Machine"] workspace $ws6
+assign [class="VirtualBox Manager"] workspace $ws7
 
 # Abrindo aplicações em modo Flutuante
 for_window [class="Galculator"] floating enable border pixel 1
@@ -264,3 +267,8 @@ bar {
 	}
 	#position top
 }
+
+# Projetos
+
+# Extensão Maratona-Linux
+bindsym $mod+Shift+F1 exec caja /home/sir-berg/Dropbox/Maratona/Maratona_Linux-Pasta_Pessoal/Relatorios/SEI &
