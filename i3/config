@@ -43,7 +43,7 @@ bindsym $mod+u exec ~/Scripts/displayu.sh # UTF
 bindsym $mod+c exec ~/Scripts/displayc.sh # Casa
 
 # Atalho de programas
-bindsym $mod+F1 exec firefox
+bindsym $mod+F1 exec arduino
 bindsym $mod+F2 exec spotify
 bindsym $mod+F3 exec caja
 bindsym $mod+F4 exec telegram-desktop
@@ -62,7 +62,7 @@ bindsym $mod+l exec ~/Scripts/lock.sh
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:System San Francisco Display 10
-font pango:hack 10
+font pango:hack 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -79,7 +79,7 @@ font pango:hack 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec rxvt-unicode
 
 #kill focused window
 bindsym $mod+Shift+q kill
@@ -191,7 +191,7 @@ assign [class="VirtualBox Manager"] workspace $ws7
 # Abrindo aplicações em modo Flutuante
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="Pavucontrol"] floating enable
-
+for_window [class="doxywizard"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -255,6 +255,7 @@ set $urgent-bg-color     #E53935
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	font pango:FontAwesome 10
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	#status_command i3status
 	colors {
@@ -271,4 +272,4 @@ bar {
 # Projetos
 
 # Extensão Maratona-Linux
-bindsym $mod+Shift+F1 exec caja /home/sir-berg/Dropbox/Maratona/Maratona_Linux-Pasta_Pessoal/Relatorios/SEI &
+bindsym $mod+Shift+F1 exec nautilus /home/sir-berg/Dropbox/Maratona/Maratona_Linux-Pasta_Pessoal/Relatorios/Relatorio-Final &
