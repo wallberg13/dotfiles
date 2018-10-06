@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/sir-berg/Scripts'
+let g:netrw_dirhist_2='/home/sir-berg/Git/maratona-linux.wiki/img'
+let g:netrw_dirhist_3='/usr/share/polkit-1/actions'
