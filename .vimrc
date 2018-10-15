@@ -53,3 +53,9 @@ set splitright
 "let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
 let g:DoxygenToolkit_authorName="Wall Berg Morais"
 "let g:DoxygenToolkit_licenseTag="GPLv3   <-- !!! Does not end with \<enter>"
+"
+"Powerline
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
+
