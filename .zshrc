@@ -1,7 +1,9 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.local/bin:/var/lib/flatpak/exports/bin:$HOME/.arduino-1.8.7/
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.local/bin:/var/lib/flatpak/exports/bin:$HOME/.arduino-1.8.7/:/usr/local/cuda/bin
 # Path to your oh-my-zsh installation.
 export ZSH=/home/sir-berg/.oh-my-zsh
+# Path to cuda directory
+export CUDADIR=/usr/local/cuda
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
