@@ -62,15 +62,15 @@ alias lh='ls --color=always -lh'
 		alias tcche='tce ; vim ACO.h -c "vsp PCMV.h" -c "sp samples.h"'
 		alias  tcce='tce ; vim ACO.c -c "vsp PCMV.c" -c "sp samples.c"'
 
-	# Paralelo OpenMP - Ants
-		alias tccPa='cd ~/TCC/PCMV-Paralelo-CPU/PCMV-Paralelo-Ant'
-		alias tcPac='tccPa ; vim ACO.c -c "vsp PCMV.c" -c "sp samples.c"'
-		alias tcPah='tccPa ; vim ACO.h -c "vsp PCMV.h" -c "sp samples.h"'
+	# Paralelo OpenMP - Sem Sum
+		alias tcPs='cd ~/TCC/PCMV-Paralelo-CPU/PCMV-ACO-Paralelo-Sum'
+		alias tcPsc='tcPs ; vim ACO.c -c "vsp PCMV.c" -c "sp samples.c"'
+		alias tcPsh='tcPs ; vim ACO.h -c "vsp PCMV.h" -c "sp samples.h"'
 
 	# Paralelo OpenMP - Operacoes
-		alias tccPo='cd ~/TCC/PCMV-Paralelo-CPU/PCMV-Paralelo-Op'
-		alias tcPoc='tccPo ; vim ACO.c -c "vsp PCMV.c" -c "sp samples.c"'
-		alias tcPoh='tccPo ; vim ACO.h -c "vsp PCMV.h" -c "sp samples.h"'
+		alias tcPe='cd ~/TCC/PCMV-Paralelo-CPU/PCMV-ACO-Paralelo-Elite'
+		alias tcPec='tcPe ; vim ACO.c -c "vsp PCMV.c" -c "sp samples.c"'
+		alias tcPeh='tcPe ; vim ACO.h -c "vsp PCMV.h" -c "sp samples.h"'
 
 # Maratona Linux
 	alias mm='cd ~/Maratona/maratona-meta'
@@ -99,6 +99,6 @@ alias lh='ls --color=always -lh'
 	# Pasta
 		alias tspdl='cd ~/Dropbox/Estagio/Desenvolvimento/'
 	# Arquivos C
-		alias tspC='tspdl ; vim samples.c -c "vsp util.c" -c "sp load.c"'
+		alias tspC='tspdl ; vim SA.c -c "vsp util.c" -c "sp samples.c"'
 	# Arquivos H
-		alias tspH='tspdl ; vim samples.h -c "vsp util.h" -c "sp load.h"'
+		alias tspH='tspdl ; vim SA.h -c "vsp util.h" -c "sp samples.h"'
