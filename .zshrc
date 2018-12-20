@@ -49,6 +49,7 @@ alias lh='ls --color=always -lh'
 		alias tcc='cd ~/TCC/PCMV-Sequencial/PCMV-ACO-Sequencial'
 		alias tcs='cd ~/TCC/PCMV-Sequencial/PCMV-ACO-Sequencial-Sum'
 		alias tce='cd ~/TCC/PCMV-Sequencial/PCMV-ACO-Sequencial-Elite'
+		alias tgg='cd ~/TCC/PCMV/'
 
 	# Sequencial Normal - Estavél
 		alias  tcch='tcc ; vim ACO.h -c "vsp PCMV.h" -c "sp samples.h"'
@@ -97,7 +98,7 @@ alias lh='ls --color=always -lh'
 
 # Estagio - TSPDL
 	# Pasta
-		alias tspdl='cd ~/Dropbox/Estagio/Desenvolvimento/'
+		alias tspdl='cd ~/Dropbox/Estagio\ -\ Wall\ Berg/Desenvolvimento/'
 	# Arquivos C
 		alias tspC='tspdl ; vim SA.c -c "vsp util.c" -c "sp samples.c"'
 	# Arquivos H

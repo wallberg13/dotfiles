@@ -11,7 +11,7 @@
 
 # Inicializacao automatica
 #exec --no-startup-id xrandr --output HDMI-0 --off --output eDP-1-1 --mode 1920x1080 --primary --auto
-exec --no-startup-id ~/Scripts/keyboard.sh
+exec --no-startup-id ~/.Scripts/keyboard.sh
 exec --no-startup-id numlockx
 exec --no-startup-id dropbox start &
 exec --no-startup-id xset -b
@@ -36,17 +36,18 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 #Wallpaper
-exec_always --no-startup-id ~/Scripts/background.sh
+exec_always --no-startup-id ~/.Scripts/background.sh
 
 # Monitores - UTFPR e Casa
-bindsym $mod+u exec ~/Scripts/displayu.sh # UTF
-bindsym $mod+c exec ~/Scripts/displayc.sh # Casa
+bindsym $mod+u exec ~/.Scripts/displayu.sh # UTF
+bindsym $mod+c exec ~/.Scripts/displayc.sh # Casa
 
 # Atalho de programas
 bindsym $mod+F1 exec arduino
 bindsym $mod+F2 exec spotify
 bindsym $mod+F3 exec caja
 bindsym $mod+F4 exec telegram-desktop
+bindsym Ctrl+Shift+Escape exec rxvt-unicode -e htop
 
 
 # GAPS
@@ -55,10 +56,10 @@ for_window [class="^.*"] border pixel 1
 #smart_borders on
 
 # Terminal com o mesmo pwd do presente
-bindsym $mod+Shift+Return exec ~/Scripts/terminal.sh
+bindsym $mod+Shift+Return exec ~/.Scripts/terminal.sh
 
 # Tela de Bloqueio
-bindsym $mod+l exec ~/Scripts/lock.sh
+bindsym $mod+l exec ~/.Scripts/lock.sh
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:System San Francisco Display 10
@@ -198,7 +199,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec ~/Scripts/logout.sh
+bindsym $mod+Shift+e exec ~/.Scripts/logout.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -272,4 +273,5 @@ bar {
 # Projetos
 
 # Extensão Maratona-Linux
-bindsym $mod+Shift+F1 exec nautilus /home/sir-berg/Dropbox/Maratona/Maratona_Linux-Pasta_Pessoal/Relatorios/Relatorio-Final &
+bindsym $mod+Shift+F1 exec nautilus /home/sir-berg/Dropbox/TCC\ -\ Wall\ Berg/TCC02\ -\ Slides &
+bindsym $mod+Shift+F2 exec nautilus /home/sir-berg/Dropbox/TCC\ -\ Wall\ Berg/Desenvolvimento &

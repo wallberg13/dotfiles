@@ -10,6 +10,9 @@ syntax on
 " Esquema de cor do Sublime - que é muito bom.
 highlight WhitespaceEOL ctermbg=red guibg=red
 colorscheme sublimemonokai
+" Esquema de cor do vscode
+" colorscheme codedark
+
 let g:sublimemonokai_term_italic = 1
 set t_Co=256
 set smartindent
@@ -36,6 +39,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
+Plugin 'tomasiser/vim-code-dark'
 
 call vundle#end()
 
@@ -84,10 +88,10 @@ let g:livedown_port = 1337
 let g:livedown_browser = "firefox"
 
 " YouCompleteMe
-let g:ycm_global_ycm_extra_conf='~/Scripts/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.Scripts/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_add_preview_to_completeopt=1
-let g:ycm_autoclose_preview_window_after_completion = 1 " Fecha o preview depois de completar.
+let g:ycm_autoclose_preview_window_after_completion = 0 " Fecha o preview depois de completar.
 let g:ycm_autoclose_preview_window_after_insertion = 1 " Fecha o preview depois de um insert.
 let g:ycm_key_list_stop_completion = ['<Enter>'] " Para de completar com Enter
 let g:ycm_auto_trigger=0
