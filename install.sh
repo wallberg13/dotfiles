@@ -12,7 +12,6 @@
 		sysstat
 		acpi
 "
-
 # Salvando o folder
 std_folder=$(pwd)
 
@@ -21,7 +20,8 @@ std_folder=$(pwd)
 
 # Programas basicos.
 # rxvt-unicode-256color
-sudo apt install rxvt-unicode-256color git curl build-essential
+sudo apt install rxvt-unicode-256color git curl build-essential compton \
+acpi numlockx i3
 
 
 # Instalando dependencias do i3 e i3-gaps
@@ -39,10 +39,25 @@ cd build/
 ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers 
 make
 sudo make install
+cd $std_folder
+
+# Instalando o Polybar
+sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev \
+libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
+libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto \
+libxcb-xrm-dev libasound2-dev libmpdclient-dev libiw-dev \
+libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb libxcb-ewmh2 -y
+
+git clone https://github.com/jaagr/polybar.git 
+cd polybar 
+sudo ./build.sh
+
+cd $std_folder
+
+
 
 # Indo para o Diretorio de origem
 # Para o Script nao se perder
-cd std_folder
 
 # Instalando Siji-Font
 
