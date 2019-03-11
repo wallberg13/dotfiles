@@ -1,6 +1,6 @@
 #!/bin/bash
 
-"
+echo "
 	Pacotes utilizados:
 		fonts-hack-ttf
 		i3
@@ -11,6 +11,7 @@
 		compton
 		sysstat
 		acpi
+		rofi
 "
 # Salvando o folder
 std_folder=$(pwd)
@@ -21,7 +22,7 @@ std_folder=$(pwd)
 # Programas basicos.
 # rxvt-unicode-256color
 sudo apt install rxvt-unicode-256color git curl build-essential compton \
-acpi numlockx i3
+acpi numlockx i3 rofi
 
 
 # Instalando dependencias do i3 e i3-gaps
@@ -39,7 +40,9 @@ cd build/
 ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers 
 make
 sudo make install
+
 cd $std_folder
+rm -r i3-gaps
 
 # Instalando o Polybar
 sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev \
@@ -52,8 +55,16 @@ git clone https://github.com/jaagr/polybar.git
 cd polybar 
 sudo ./build.sh
 
+# Voltando para o Folder Padrao
 cd $std_folder
 
+# Configurando o Polybar
+sudo chown -R $USER:$USER ~/.config/polybar
+if [ -d ../dotfiles/polybar ]; then
+	cp -r ../dotfiles/polybar $HOME/.config/polybar
+fi
+
+rm -r polybar
 
 
 # Indo para o Diretorio de origem
@@ -62,7 +73,9 @@ cd $std_folder
 # Instalando Siji-Font
 
 # Fazendo que o Ubuntu pare de proibir fonts bitmap com backup
-sudo mv /etc/fonts/70-no-bitmaps.conf /etc/fonts/70-no-bitmaps.conf.old
+if [ -f /etc/fonts/70-no-bitmaps.conf ]; then
+	sudo mv /etc/fonts/70-no-bitmaps.conf /etc/fonts/70-no-bitmaps.conf.old
+fi
 
 # Fazendo copia das configurações do i3, i3blocks, polybar e Scripts
 
