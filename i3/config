@@ -43,10 +43,6 @@ bindsym $mod+u exec ~/.Scripts/displayu.sh # UTF
 bindsym $mod+c exec ~/.Scripts/displayc.sh # Casa
 
 # Atalho de programas
-bindsym $mod+F1 exec arduino
-bindsym $mod+F2 exec spotify
-bindsym $mod+F3 exec caja
-bindsym $mod+F4 exec telegram-desktop
 bindsym Ctrl+Shift+Escape exec rxvt-unicode -e htop
 
 
@@ -186,13 +182,14 @@ assign [class="TelegramDesktop"] workspace $ws8
 assign [class="Transmission-gtk"] workspace $ws9
 assign [class="Spotify"] workspace $ws10
 assign [class="Virt-manager"] workspace $ws7
-assign [class="VirtualBox Machine"] workspace $ws6
-assign [class="VirtualBox Manager"] workspace $ws7
+#assign [class="VirtualBox Machine"] workspace $ws6
+#assign [class="VirtualBox Manager"] workspace $ws7
 
 # Abrindo aplicações em modo Flutuante
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="Pavucontrol"] floating enable
 for_window [class="doxywizard"] floating enable
+for_window [class="Yad"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -236,23 +233,6 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
-#set $blue   #1b1e26
-#set $yellow #f0d48b
-#set $grey   #b0b287
-#set $green  #789073
-#set $pink   #FF69B4
-#set $white  #FFFFFF
-
-# My colors
-#client.focused      $green      $blue       $green      $green      $pink
-#client.focused_inactive $yellow     $blue       $grey       $white      $white
-#client.unfocused    $white      $blue       $grey       $white      $white
-#client.urgent       $yellow     $blue       $yellow     $yellow     $yellow
-#client.placeholder  $yellow     $blue       $yellow     $yellow     $yellow
-
-#client.background   $blue
-
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -269,9 +249,3 @@ bar {
 	}
 	#position top
 }
-
-# Projetos
-
-# Extensão Maratona-Linux
-bindsym $mod+Shift+F1 exec nautilus /home/sir-berg/Dropbox/TCC\ -\ Wall\ Berg/TCC02\ -\ Slides &
-bindsym $mod+Shift+F2 exec nautilus /home/sir-berg/Dropbox/TCC\ -\ Wall\ Berg/Desenvolvimento &
