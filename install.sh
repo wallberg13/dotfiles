@@ -160,7 +160,7 @@ std_folder=$(pwd)
 			libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 \
 			libxcb-xrm-dev automake libxcb-shape0-dev -y 
 
-	# Instalando o i3-gaps
+		# Instalando o i3-gaps
 		echo -e "\n\n\n Instalando o i3-gaps"
 		git clone https://www.github.com/Airblader/i3 i3-gaps 
 		cd i3-gaps 
@@ -172,7 +172,7 @@ std_folder=$(pwd)
 				make
 				sudo make install
 
-	# Voltando ao diretorio raiz, e limpando o i3-gaps
+		# Voltando ao diretorio raiz, e limpando o i3-gaps
 		cd $std_folder
 		sudo rm -r i3-gaps
 	else
