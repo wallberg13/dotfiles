@@ -113,10 +113,7 @@ std_folder=$(pwd)
 # Baixando programas necessarios via wget
 		
 	# Primeiro verifica-se se os programas não estão baixados.
-	RESP=$(fc-list | grep Awesome | wc -l )
-	RESP2=$(which playerctl)
-	
-	if [ $RESP -eq 0 ] && [ $RESP2 != "" ] ; then 
+	if [ ! -d $HOME/.fonts ] && [ ! -f /usr/bin/playerctl ]; then 
 		echo -e "\n\n\nBaixando arquivos necessarios via wget"
 		wget -i $std_folder/via_wget
 		
@@ -185,15 +182,19 @@ std_folder=$(pwd)
 
 # Instalando Siji-Font
 	echo -e "\n\n\n Instalando Font Siji - Polybar"
-	git clone https://github.com/stark/siji
-	cd siji
-		cp bdf/siji.bdf $HOME/.fonts
-		cp pcf/siji.pcf $HOME/.fonts
-		mkfontdir $HOME/.fonts
-		xset +fp $HOME/.fonts
-		xset fp rehash
-	cd $std_folder
-	sudo rm -rf siji
+	if [ ! -f $HOME/.fonts/siji.bdf ]; then	
+		git clone https://github.com/stark/siji
+		cd siji
+			cp bdf/siji.bdf $HOME/.fonts
+			cp pcf/siji.pcf $HOME/.fonts
+			mkfontdir $HOME/.fonts
+			xset +fp $HOME/.fonts
+			xset fp rehash
+		cd $std_folder
+		sudo rm -rf siji
+	else
+		echo -e "\n\n\nFonte Siji já instalada\n\n\n"
+	fi
 
 # Fazendo que o Ubuntu pare de proibir fonts bitmap com backup
 	echo -e "\n\n\n Tirando a opção do Ubuntu de proibir bitmaps fonts"
@@ -205,8 +206,7 @@ std_folder=$(pwd)
 # Instalando o Polybar
 	# Caso esse script for rodado novamente, ele não irá baixar e instalar
 	# novamente a polybar.	
-	which polybar
-	if (( $? == 0 )) ; then
+	if [ ! -f /usr/local/bin/polybar ]; then 
 		sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev \
 			libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
 			libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto \
@@ -219,8 +219,6 @@ std_folder=$(pwd)
 		cd polybar-git
 			sudo ./build.sh
 			sudo make install
-	else
-		echo -e "\n\n\nPolybar ja instalada\n\n\n"
 	fi
 
 
