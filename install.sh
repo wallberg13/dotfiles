@@ -248,8 +248,8 @@ std_folder=$(pwd)
 	sudo apt install python-pip
 
 	# Instalando o Powerline somente para mim
-	sudo pip install git+git://github.com/Lokaltog/powerline
-	
+	sudo pip install setuptools powerline-status
+
 	# Instalando as fontes
 	git clone https://github.com/powerline/fonts.git --depth=1
 	cd fonts
