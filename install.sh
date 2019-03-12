@@ -38,40 +38,39 @@
 #	- Tratamentos de erros em geral
 
 echo "
-	Pacotes instalados utilizados:
-		name			- inst	-	tested
-		rxvt-unicode	- OK	- 	pass
-		fonts-hack-ttf 	- OK	- 	pass
-		i3				- OK	-  	pass
-		i3gaps			- OK	- 	pass
-		numlockx		- OK	- 	pass
-		compton			- OK	- 	pass
-		sysstat			- OK 	- 	pass
-		acpi			- OK	- 	pass
-		rofi			- OK	- 	pass
-		pulseaudio-utils- OK	- 	pass
-		x11-utils		- OK	-  	pass
-		feh				- OK	-	pass 
-		pywal			-		- 
-		siji font		- OK	- 	pass
-		zsh & oh-my-zsh	- OK	- 	pass
-		polybar			- OK	- 	pass
-		neofetch		- OK 	- 	pass
-		scrot			- OK	- 	pass
-		htop			- OK	- 	pass
-		Font Awesome 5 	- OK 	- 
-		curl 			- OK	- 
-		imagemagick		- OK	- 
-		vim				- OK	- 
-		build-essential	- OK	- 
-		gucharmap		- OK	- 
-		unzip			- OK	- 
-		kde-spectacle 	- OK	-
-		powerline-vim	- OK	-
-		powerline-poly	-		-
-		powerline-fonts - OK	-
-		lxappearance	- OK	-
-		python3-dev		- OK
+Pacotes instalados:
+	 - rxvt-unicode
+	 - fonts-hack-ttf
+	 - i3
+	 - i3gaps
+	 - numlockx
+	 - compton
+	 - sysstat
+	 - acpi
+	 - rofi
+	 - pulseaudio-utils
+	 - x11-utils
+	 - feh
+	 - pywal
+	 - siji font
+	 - zsh & oh-my-zsh
+	 - polybar
+	 - neofetch
+	 - scrot
+	 - htop
+	 - FontAwesome5
+	 - curl
+	 - imagemagick
+	 - vim
+	 - build-essential
+	 - gucharmap
+	 - unzip
+	 - kde-spectacle
+	 - powerline-vim
+	 - powerline-poly
+	 - powerline-fonts
+	 - lxappearance
+	 - python3-dev
 "
 
 # Salvando o folder presente da pasta dotfiles.
