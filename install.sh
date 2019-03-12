@@ -35,20 +35,18 @@ set -e
 echo "
 	Pacotes instalados utilizados:
 		name			- inst	-	tested
-		rxvt-unicode	- OK	- 
-		fonts-hack-ttf 	- OK	- 
-		i3				- OK	- 
-		i3gaps			- OK	- 
-		i3blocks		- OUT	- 
-		i3blocks-gaps	- OUT	- 
-		numlockx		- OK	- 
-		compton			- OK	- 
-		sysstat			- OK 	- 
-		acpi			- OK	- 
-		rofi			- OK	- 
-		pulseaudio-utils- OK	- 
+		rxvt-unicode	- OK	- 	pass
+		fonts-hack-ttf 	- OK	- 	pass
+		i3				- OK	-  	pass
+		i3gaps			- OK	- 	pass
+		numlockx		- OK	- 	pass
+		compton			- OK	- 	pass
+		sysstat			- OK 	- 	pass
+		acpi			- OK	- 	pass
+		rofi			- OK	- 	pass
+		pulseaudio-utils- OK	- 	pass
 		x11-utils		- OK	- 
-		feh				- OK	- 
+		feh				- OK	-	pass 
 		pywal			-	- 
 		siji font		-	- 
 		zsh & oh-my-zsh	- OK	- 
@@ -156,6 +154,7 @@ std_folder=$(pwd)
 # Configurando i3 - Copiando a pasta do i3 e Scripts
 	cp -r $std_folder/i3 $HOME/.config
 	cp -r $std_folder/Scripts $HOME/.Scripts
+	cp $std_folder/wallpaper.jpg $HOME/Pictures/
 
 # Instalando o Polybar
 	sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev \
