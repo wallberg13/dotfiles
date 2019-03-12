@@ -17,6 +17,8 @@ exec --no-startup-id dropbox start &
 exec --no-startup-id xset -b
 exec --no-startup-id nm-applet
 exec_always --no-startup-id compton
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
 set $mod Mod1
 
 # Teclas multimedia
@@ -227,25 +229,25 @@ bindsym $mod+r mode "resize"
 
 # Cores do AlexBooker
 # https://github.com/bookercodes/dotfiles/blob/ubuntu/.i3/config
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-	font pango:FontAwesome 10
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	#status_command i3status
-	colors {
-		background $bg-color
-		separator #757575
-		#          			 border              background         text
-		focused_workspace	$bg-color			#7a72bc				$text-color
-		inactive_workspace	$inactive-bg-color	$inactive-bg-color	$inactive-text-color
-		urgent_workspace	$urgent-bg-color	$urgent-bg-color	$text-color
-	}
-	#position top
-}
+#set $bg-color 	         #2f343f
+#set $inactive-bg-color   #2f343f
+#set $text-color          #f3f4f5
+#set $inactive-text-color #676E7D
+#set $urgent-bg-color     #E53935
+#
+## Start i3bar to display a workspace bar (plus the system information i3status
+## finds out, if available)
+#bar {
+#	font pango:FontAwesome 10
+#    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#	#status_command i3status
+#	colors {
+#		background $bg-color
+#		separator #757575
+#		#          			 border              background         text
+#		focused_workspace	$bg-color			#7a72bc				$text-color
+#		inactive_workspace	$inactive-bg-color	$inactive-bg-color	$inactive-text-color
+#		urgent_workspace	$urgent-bg-color	$urgent-bg-color	$text-color
+#	}
+#	#position top
+#}

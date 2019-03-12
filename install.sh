@@ -64,7 +64,7 @@ echo "
 		gucharmap		- OK	- 
 		unzip			- OK	- 
 		kde-spectacle 	- OK	-
-		vim				- OK	-
+		vim				- 		-
 		powerline-vim	-		-
 		powerline-poly	-		-
 "
@@ -154,7 +154,7 @@ std_folder=$(pwd)
 	sudo rm -r i3-gaps
 
 # Configurando i3 - Copiando a pasta do i3 e Scripts
-	cp -r $std_folder/i3 $HOME/.config/i3
+	cp -r $std_folder/i3 $HOME/.config
 	cp -r $std_folder/Scripts $HOME/.Scripts
 
 # Instalando o Polybar
@@ -174,7 +174,6 @@ std_folder=$(pwd)
 
 # Configurando o Polybar
 	echo -e "\n\n\n Adicionando os arquivos do Polybar "
-	sudo chown -R $USER:$USER $HOME/.config/polybar
 	if [ -d $std_folder/polybar ]; then
 		cp -r $std_folder/polybar $HOME/.config
 	fi
