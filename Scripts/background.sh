@@ -1,3 +1,3 @@
 #!/bin/bash
 
-feh --bg-fill ~/Pictures/Nnq1Sas.jpg
+feh --bg-fill ~/Pictures/wallpaper.jpg
