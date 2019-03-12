@@ -63,17 +63,25 @@ echo "
 		build-essential	- OK	- 
 		gucharmap		- OK	- 
 		unzip			- OK	- 
+		kde-spectacle 	- OK	-
+		vim				- OK	-
+		powerline-vim	-		-
+		powerline-poly	-		-
 "
 
 # Salvando o folder presente da pasta dotfiles.
 std_folder=$(pwd)
 
+# Update no sistema
+	sudo apt update
+	sudo apt upgrade -y
+
 # Programas basicos necessarios.
-	echo "\n\n\nInstalando os programas basicos para a interface"
+	echo -e "\n\n\nInstalando os programas basicos para a interface"
 	sudo apt install rxvt-unicode-256color curl build-essential compton \
 		acpi numlockx i3 rofi feh x11-xserver-utils pulseaudio-utils zsh vim\
 		fonts-hack-ttf scrot neofetch htop sysstat imagemagick gucharmap \
-		unzip -y
+		unzip kde-spectacle -y
 
 # Configurando o rxvt-unicode
 	cp $std_folder/Xresources $HOME/.Xresources
@@ -81,24 +89,29 @@ std_folder=$(pwd)
 
 # Instalando o oh-my-zsh e configurando o zsh.
 	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 	cp $std_folder/zshrc $HOME/.zshrc
 
+# Copiando os arquivos de configuração do Vim
+	cp $std_folder/vimrc $HOME/.vimrc
+	cp -r $std_folder/vim $HOME/.vim
+
 # Baixando programas necessarios via wget
-	echo "\n\n\nBaixando arquivos necessarios via wget"
+	echo -e "\n\n\nBaixando arquivos necessarios via wget"
 	wget -i $std_folder/via_wget
 
 	# Instalando o Playerctl - Via wget
-		echo "\n\n\nInstalando o Playerctl - Controlador de musica"
+		echo -e "\n\n\nInstalando o Playerctl - Controlador de musica"
 		if [ -f $std_folder/playerctl-2.0.1_amd64.deb ]; then
 			sudo dpkg -i playerctl-2.0.1_amd64.deb
 			sudo apt install -f
 			rm playerctl-2.0.1_amd64.deb
 		else
-			echo "\n\n\n Arquivo do PLAYERCTL não baixado \n\n\n"
+			echo -e "\n\n\n Arquivo do PLAYERCTL não baixado \n\n\n"
 		fi
 
 	# Instalando o Fonts Awesome
-		echo "\n\n\nInstalando o Fonts Awesome 5"
+		echo -e "\n\n\nInstalando o Fonts Awesome 5"
 		if [ -f $std_folder/fontawesome-free-5.7.2-desktop.zip ]; then
 			
 			font_file_name=fontawesome-free-5.7.2-desktop.zip
@@ -113,11 +126,11 @@ std_folder=$(pwd)
 			sudo rm -rf fontawesome-free-5.7.2-desktop # rm dir created.
 
 		else
-			echo "\n\n\nArquivo do FONT AWESOME 5 não baixado\n\n\n"
+			echo -e "\n\n\nArquivo do FONT AWESOME 5 não baixado\n\n\n"
 		fi
 
 # Instalando dependencias do i3-gaps
-	echo "\n\n\n Instalando dependencias do i3-gaps"
+	echo -e "\n\n\n Instalando dependencias do i3-gaps"
 	sudo apt install git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
 		libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev \
 		libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
@@ -125,7 +138,7 @@ std_folder=$(pwd)
 		libxcb-xrm-dev automake libxcb-shape0-dev -y 
 
 # Instalando o i3-gaps
-	echo "\n\n\n Instalando o i3-gaps"
+	echo -e "\n\n\n Instalando o i3-gaps"
 	git clone https://www.github.com/Airblader/i3 i3-gaps 
 	cd i3-gaps 
 		autoreconf --force --install 
@@ -140,7 +153,7 @@ std_folder=$(pwd)
 	cd $std_folder
 	sudo rm -r i3-gaps
 
-# Configurando i3
+# Configurando i3 - Copiando a pasta do i3 e Scripts
 	cp -r $std_folder/i3 $HOME/.config/i3
 	cp -r $std_folder/Scripts $HOME/.Scripts
 
@@ -154,24 +167,32 @@ std_folder=$(pwd)
 	git clone https://github.com/jaagr/polybar.git polybar-git
 	cd polybar-git
 		sudo ./build.sh
+		sudo make install
 
 # Voltando para o Folder Padrao
 	cd $std_folder
 
 # Configurando o Polybar
-	sudo chown -R $USER:$USER ~/.config/polybar
+	echo -e "\n\n\n Adicionando os arquivos do Polybar "
+	sudo chown -R $USER:$USER $HOME/.config/polybar
 	if [ -d $std_folder/polybar ]; then
-		cp -r $std_folder/polybar $HOME/.config/polybar
+		cp -r $std_folder/polybar $HOME/.config
 	fi
 
 	sudo rm -r polybar-git
 
 # Instalando Siji-Font
-	
+	echo -e "\n\n\n Instalando Font Siji - Polybar"
+	git clone https://github.com/stark/siji
+	cd siji
+		cp bdf/siji.bdf $HOME/.fonts
+		cp pcf/siji.pcf $HOME/.fonts
+		fc-cache -f
+	cd $std_folder
+	sudo rm -rf siji
 
 # Fazendo que o Ubuntu pare de proibir fonts bitmap com backup
+	echo -e "\n\n\n Tirando a opção do Ubuntu de proibir bitmaps fonts"
 	if [ -f /etc/fonts/70-no-bitmaps.conf ]; then
 		sudo mv /etc/fonts/70-no-bitmaps.conf /etc/fonts/70-no-bitmaps.conf.old
 	fi
-
-# Fazendo copia das configurações do i3, i3blocks, polybar e Scripts
