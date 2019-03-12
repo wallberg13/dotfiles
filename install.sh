@@ -50,15 +50,15 @@ echo "
 		acpi			- OK	- 	pass
 		rofi			- OK	- 	pass
 		pulseaudio-utils- OK	- 	pass
-		x11-utils		- OK	- 
+		x11-utils		- OK	-  	pass
 		feh				- OK	-	pass 
 		pywal			-		- 
-		siji font		- OK	- 
-		zsh & oh-my-zsh	- OK	- 
-		polybar			- OK	- 
-		neofetch		- OK 	- 
-		scrot			- OK	- 
-		htop			- OK	- 
+		siji font		- OK	- 	pass
+		zsh & oh-my-zsh	- OK	- 	pass
+		polybar			- OK	- 	pass
+		neofetch		- OK 	- 	pass
+		scrot			- OK	- 	pass
+		htop			- OK	- 	pass
 		Font Awesome 5 	- OK 	- 
 		curl 			- OK	- 
 		imagemagick		- OK	- 
@@ -67,11 +67,11 @@ echo "
 		gucharmap		- OK	- 
 		unzip			- OK	- 
 		kde-spectacle 	- OK	-
-		powerline-vim	-		-
+		powerline-vim	- OK	-
 		powerline-poly	-		-
-		powerline-fonts -		-
+		powerline-fonts - OK	-
 		lxappearance	- OK	-
-		python3-dev		-
+		python3-dev		- OK
 "
 
 # Salvando o folder presente da pasta dotfiles.
@@ -149,7 +149,7 @@ std_folder=$(pwd)
 				echo -e "\n\n\nArquivo do FONT AWESOME 5 não baixado\n\n\n"
 			fi
 	else
-		echo "\n\n\n Playerctl e Awesome Fonts instalados \n\n\n"
+		echo -e "\n\n\n Playerctl e Awesome Fonts instalados \n\n\n"
 	fi
 
 # Instalando dependencias do i3-gaps
@@ -178,7 +178,7 @@ std_folder=$(pwd)
 		cd $std_folder
 		sudo rm -r i3-gaps
 	else
-		echo "\n\n\n i3-gaps já instalado "
+		echo -e "\n\n\n i3-gaps já instalado "
 	fi
 
 # Configurando i3 - Copiando a pasta do i3 e Scripts
@@ -247,7 +247,7 @@ std_folder=$(pwd)
 # Instalando pré-dependencias do Poweline
 	sudo apt install python-pip
 
-	# Instalando o Powerline somente para mim
+	# Instalando o Powerline para todos.
 	sudo pip install setuptools powerline-status
 
 	# Instalando as fontes
@@ -259,6 +259,3 @@ std_folder=$(pwd)
 
 # Finalmente
 	echo -e "\n\n\n FINALMENTE PO#%@"
-
-
-
