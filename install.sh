@@ -249,7 +249,7 @@ std_folder=$(pwd)
 
 	# Instalando o Powerline somente para mim
 	sudo pip install git+git://github.com/Lokaltog/powerline
-
+	
 	# Instalando as fontes
 	git clone https://github.com/powerline/fonts.git --depth=1
 	cd fonts
