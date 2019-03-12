@@ -54,9 +54,9 @@ echo "
 		x11-utils		- OK	- 
 		feh				- OK	-	pass 
 		pywal			-	- 
-		siji font		-	- 
+		siji font		- OK	- 
 		zsh & oh-my-zsh	- OK	- 
-		polybar			- 	- 
+		polybar			- OK	- 
 		neofetch		- OK 	- 
 		scrot			- OK	- 
 		htop			- OK	- 
@@ -96,44 +96,60 @@ std_folder=$(pwd)
 	cp $std_folder/zshrc $HOME/.zshrc
 
 # Copiando os arquivos de configuração do Vim
-	cp $std_folder/vimrc $HOME/.vimrc
-	cp -r $std_folder/vim $HOME/.vim
+		
+	# Faz um copia caso não existir
+	if [ ! -f $HOME/.vimrc ] && [ ! -d $HOME/.vim ] ; then
+		cp $std_folder/vimrc $HOME/.vimrc
+		cp -r $std_folder/vim $HOME/.vim
 	
-	# Instalando o Vundle-Vim
-	git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+		# Instalando o Vundle-Vim
+		git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+	else
+		echo -e "\n\n\nVim já está devidamente configurado"
+	fi
+
 
 # Baixando programas necessarios via wget
-	echo -e "\n\n\nBaixando arquivos necessarios via wget"
-	wget -i $std_folder/via_wget
-
-	# Instalando o Playerctl - Via wget
-		echo -e "\n\n\nInstalando o Playerctl - Controlador de musica"
-		if [ -f $std_folder/playerctl-2.0.1_amd64.deb ]; then
-			sudo dpkg -i playerctl-2.0.1_amd64.deb
-			sudo apt install -f
-			rm playerctl-2.0.1_amd64.deb
-		else
-			echo -e "\n\n\n Arquivo do PLAYERCTL não baixado \n\n\n"
-		fi
-
-	# Instalando o Fonts Awesome
-		echo -e "\n\n\nInstalando o Fonts Awesome 5"
-		if [ -f $std_folder/fontawesome-free-5.7.2-desktop.zip ]; then
-			
-			font_file_name=fontawesome-free-5.7.2-desktop.zip
-			unzip $font_file_name
-			rm $font_file_name # Rm zip file
-
-			cd fontawesome-free-5.7.2-desktop/otfs
-				mkdir -p $HOME/.fonts # Mkdir if not exists
-				cp *.otf $HOME/.fonts # Copy to $HOME dir fonts
-				fc-cache -f # Update fonts cache
-			cd $std_folder
-			sudo rm -rf fontawesome-free-5.7.2-desktop # rm dir created.
-
-		else
-			echo -e "\n\n\nArquivo do FONT AWESOME 5 não baixado\n\n\n"
-		fi
+		
+	# Primeiro verifica-se se os programas não estão baixados.
+	RESP=$(fc-list | grep Awesome | wc -l )
+	RESP2=$(which playerctl)
+	
+	if [ $RESP -eq 0 ] && [ $RESP2 != "" ] ; then 
+		echo -e "\n\n\nBaixando arquivos necessarios via wget"
+		wget -i $std_folder/via_wget
+		
+		# Instalando o Playerctl - Via wget
+			echo -e "\n\n\nInstalando o Playerctl - Controlador de musica"
+			if [ -f $std_folder/playerctl-2.0.1_amd64.deb ]; then
+				sudo dpkg -i playerctl-2.0.1_amd64.deb
+				sudo apt install -f
+				rm playerctl-2.0.1_amd64.deb
+			else
+				echo -e "\n\n\n Arquivo do PLAYERCTL não baixado \n\n\n"
+			fi
+	
+		# Instalando o Fonts Awesome
+			echo -e "\n\n\nInstalando o Fonts Awesome 5"
+			if [ -f $std_folder/fontawesome-free-5.7.2-desktop.zip ]; then
+				
+				font_file_name=fontawesome-free-5.7.2-desktop.zip
+				unzip $font_file_name
+				rm $font_file_name # Rm zip file
+	
+				cd fontawesome-free-5.7.2-desktop/otfs
+					mkdir -p $HOME/.fonts # Mkdir if not exists
+					cp *.otf $HOME/.fonts # Copy to $HOME dir fonts
+					fc-cache -f # Update fonts cache
+				cd $std_folder
+				sudo rm -rf fontawesome-free-5.7.2-desktop # rm dir created.
+	
+			else
+				echo -e "\n\n\nArquivo do FONT AWESOME 5 não baixado\n\n\n"
+			fi
+	else
+		echo "\n\n\n Playerctl e Awesome Fonts instalados \n\n\n"
+	fi
 
 # Instalando dependencias do i3-gaps
 	echo -e "\n\n\n Instalando dependencias do i3-gaps"
@@ -161,7 +177,9 @@ std_folder=$(pwd)
 
 # Configurando i3 - Copiando a pasta do i3 e Scripts
 	cp -r $std_folder/i3 $HOME/.config
-	cp -r $std_folder/Scripts $HOME/.Scripts
+	if [ ! -d $HOME/.Scripts ] ; then  
+		cp -r $std_folder/Scripts $HOME/.Scripts
+	fi
 	cp $std_folder/wallpaper.jpg $HOME/Pictures/
 
 # Instalando Siji-Font
@@ -173,7 +191,6 @@ std_folder=$(pwd)
 		mkfontdir $HOME/.fonts
 		xset +fp $HOME/.fonts
 		xset fp rehash
-		fc-cache -f
 	cd $std_folder
 	sudo rm -rf siji
 
@@ -181,21 +198,30 @@ std_folder=$(pwd)
 	echo -e "\n\n\n Tirando a opção do Ubuntu de proibir bitmaps fonts"
 	if [ -f /etc/fonts/conf.d/70-no-bitmaps.conf ]; then
 		sudo mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.d/70-no-bitmaps.conf.old
+		fc-cache -f
 	fi
 
 # Instalando o Polybar
-	sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev \
-		libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
-		libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto \
-		libxcb-xrm-dev libasound2-dev libmpdclient-dev libiw-dev \
-		libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb	libxcb-ewmh2 \
-		ttf-unifont -y
+	# Caso esse script for rodado novamente, ele não irá baixar e instalar
+	# novamente a polybar.	
+	which polybar
+	if (( $? == 0 )) ; then
+		sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev \
+			libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
+			libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto \
+			libxcb-xrm-dev libasound2-dev libmpdclient-dev libiw-dev \
+			libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb	libxcb-ewmh2 \
+			ttf-unifont -y
 
-	git clone https://github.com/jaagr/polybar.git polybar-git
+		git clone https://github.com/jaagr/polybar.git polybar-git
 
-	cd polybar-git
-		sudo ./build.sh
-		sudo make install
+		cd polybar-git
+			sudo ./build.sh
+			sudo make install
+	else
+		echo -e "\n\n\nPolybar ja instalada\n\n\n"
+	fi
+
 
 # Voltando para o Folder Padrao
 	cd $std_folder

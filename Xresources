@@ -22,7 +22,7 @@ URxvt*foreground: #E9B96E
 
 !! Transparencia
 URxvt*depth: 32
-URxvt.background: [90]#000000
+URxvt.background: [80]#000000
 !0000/0000/0200/ce00
 
 !! Extensões
