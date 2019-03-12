@@ -71,6 +71,7 @@ Pacotes instalados:
 	 - powerline-fonts
 	 - lxappearance
 	 - python3-dev
+	 - powerline-extra-symbols
 "
 
 # Salvando o folder presente da pasta dotfiles.
@@ -255,6 +256,14 @@ std_folder=$(pwd)
 		./install.sh
 	cd $std_folder
 	rm -rf fonts
+
+# Instalando PowerLine Extra Symbols
+	git clone https://github.com/ryanoasis/powerline-extra-symbols
+	cd powerline-extra-symbolds
+		cp PowerlineExtraSymbols.otf $HOME/.fonts
+	cd $std_folder
+	rm -rf powerline-extra-symbols
+	fc-cache -f
 
 # Finalmente
 	echo -e "\n\n\n FINALMENTE PO#%@"
