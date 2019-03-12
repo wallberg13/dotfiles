@@ -69,7 +69,9 @@ echo "
 		kde-spectacle 	- OK	-
 		powerline-vim	-		-
 		powerline-poly	-		-
+		powerline-fonts -		-
 		lxappearance	- OK	-
+		python3-dev		-
 "
 
 # Salvando o folder presente da pasta dotfiles.
@@ -84,7 +86,7 @@ std_folder=$(pwd)
 	sudo apt install rxvt-unicode-256color curl build-essential compton \
 		acpi numlockx i3 rofi feh x11-xserver-utils pulseaudio-utils zsh vim\
 		fonts-hack-ttf scrot neofetch htop sysstat imagemagick gucharmap \
-		unzip kde-spectacle i3lock lxappearance -y
+		unzip kde-spectacle i3lock lxappearance python3-dev python-dev -y
 
 # Configurando o rxvt-unicode
 	cp $std_folder/Xresources $HOME/.Xresources
@@ -240,4 +242,23 @@ std_folder=$(pwd)
 	fi
 
 	sudo rm -r polybar-git
+
+
+# Instalando pré-dependencias do Poweline
+	sudo apt install python-pip
+
+	# Instalando o Powerline somente para mim
+	pip install --user git+git://github.com/Lokaltog/powerline
+
+	# Instalando as fontes
+	git clone https://github.com/powerline/fonts.git --depth=1
+	cd fonts
+		./intall.sh
+	cd $std_folder
+	rm -rf fonts
+
+# Finalmente
 	echo -e "\n\n\n FINALMENTE PO#%@"
+
+
+
