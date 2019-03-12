@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 #						The MIT License
 #
@@ -53,7 +52,7 @@ echo "
 		pulseaudio-utils- OK	- 	pass
 		x11-utils		- OK	- 
 		feh				- OK	-	pass 
-		pywal			-	- 
+		pywal			-		- 
 		siji font		- OK	- 
 		zsh & oh-my-zsh	- OK	- 
 		polybar			- OK	- 
@@ -70,7 +69,7 @@ echo "
 		kde-spectacle 	- OK	-
 		powerline-vim	-		-
 		powerline-poly	-		-
-		lxappearance	-		-
+		lxappearance	- OK	-
 "
 
 # Salvando o folder presente da pasta dotfiles.
@@ -92,7 +91,9 @@ std_folder=$(pwd)
 	xrdb $HOME/.Xresources
 
 # Instalando o oh-my-zsh e configurando o zsh.
-	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	if [ ! -d $HOME/.oh-my-zsh ]; then
+		sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	fi
 
 	cp $std_folder/zshrc $HOME/.zshrc
 
@@ -150,28 +151,33 @@ std_folder=$(pwd)
 	fi
 
 # Instalando dependencias do i3-gaps
-	echo -e "\n\n\n Instalando dependencias do i3-gaps"
-	sudo apt install git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
-		libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev \
-		libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
-		libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 \
-		libxcb-xrm-dev automake libxcb-shape0-dev -y 
+	i3 --version | grep gaps
+	if [ ! $? -eq 0 ] ; then
+		echo -e "\n\n\n Instalando dependencias do i3-gaps"
+		sudo apt install git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
+			libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev \
+			libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
+			libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 \
+			libxcb-xrm-dev automake libxcb-shape0-dev -y 
 
-# Instalando o i3-gaps
-	echo -e "\n\n\n Instalando o i3-gaps"
-	git clone https://www.github.com/Airblader/i3 i3-gaps 
-	cd i3-gaps 
-		autoreconf --force --install 
-		rm -rf build/ 
-		mkdir -p build 
-		cd build/ 
-			../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers 
-			make
-			sudo make install
+	# Instalando o i3-gaps
+		echo -e "\n\n\n Instalando o i3-gaps"
+		git clone https://www.github.com/Airblader/i3 i3-gaps 
+		cd i3-gaps 
+			autoreconf --force --install 
+			rm -rf build/ 
+			mkdir -p build 
+			cd build/ 
+				../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers 
+				make
+				sudo make install
 
-# Voltando ao diretorio raiz, e limpando o i3-gaps
-	cd $std_folder
-	sudo rm -r i3-gaps
+	# Voltando ao diretorio raiz, e limpando o i3-gaps
+		cd $std_folder
+		sudo rm -r i3-gaps
+	else
+		echo "\n\n\n i3-gaps já instalado "
+	fi
 
 # Configurando i3 - Copiando a pasta do i3 e Scripts
 	cp -r $std_folder/i3 $HOME/.config
@@ -219,6 +225,8 @@ std_folder=$(pwd)
 		cd polybar-git
 			sudo ./build.sh
 			sudo make install
+	else 
+		echo -e "\n\n\nPolybar ja instalada\n\n\n"
 	fi
 
 
@@ -232,3 +240,4 @@ std_folder=$(pwd)
 	fi
 
 	sudo rm -r polybar-git
+	echo -e "\n\n\n FINALMENTE PO#%@"
