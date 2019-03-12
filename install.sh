@@ -29,8 +29,14 @@ set -e
 # Creditos:
 # Terminal Root:
 # http://terminalroot.com.br/2019/01/ubuntu-i3gaps-albert-cava-polybar.html
-#
+# Instalação do i3-gaps e polybar
 # 
+
+
+# TODO:
+#	- Tratar de não fazer serviço de "graca", como da rebuild
+# 	  em algo que já foi dado.
+#	- Tratamentos de erros em geral
 
 echo "
 	Pacotes instalados utilizados:
@@ -62,7 +68,6 @@ echo "
 		gucharmap		- OK	- 
 		unzip			- OK	- 
 		kde-spectacle 	- OK	-
-		vim				- 		-
 		powerline-vim	-		-
 		powerline-poly	-		-
 "
@@ -79,7 +84,7 @@ std_folder=$(pwd)
 	sudo apt install rxvt-unicode-256color curl build-essential compton \
 		acpi numlockx i3 rofi feh x11-xserver-utils pulseaudio-utils zsh vim\
 		fonts-hack-ttf scrot neofetch htop sysstat imagemagick gucharmap \
-		unzip kde-spectacle -y
+		unzip kde-spectacle i3lock -y
 
 # Configurando o rxvt-unicode
 	cp $std_folder/Xresources $HOME/.Xresources
@@ -93,6 +98,9 @@ std_folder=$(pwd)
 # Copiando os arquivos de configuração do Vim
 	cp $std_folder/vimrc $HOME/.vimrc
 	cp -r $std_folder/vim $HOME/.vim
+	
+	# Instalando o Vundle-Vim
+	git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 
 # Baixando programas necessarios via wget
 	echo -e "\n\n\nBaixando arquivos necessarios via wget"
@@ -156,14 +164,35 @@ std_folder=$(pwd)
 	cp -r $std_folder/Scripts $HOME/.Scripts
 	cp $std_folder/wallpaper.jpg $HOME/Pictures/
 
+# Instalando Siji-Font
+	echo -e "\n\n\n Instalando Font Siji - Polybar"
+	git clone https://github.com/stark/siji
+	cd siji
+		cp bdf/siji.bdf $HOME/.fonts
+		cp pcf/siji.pcf $HOME/.fonts
+		mkfontdir $HOME/.fonts
+		xset +fp $HOME/.fonts
+		xset fp rehash
+		fc-cache -f
+	cd $std_folder
+	sudo rm -rf siji
+
+# Fazendo que o Ubuntu pare de proibir fonts bitmap com backup
+	echo -e "\n\n\n Tirando a opção do Ubuntu de proibir bitmaps fonts"
+	if [ -f /etc/fonts/conf.d/70-no-bitmaps.conf ]; then
+		sudo mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.d/70-no-bitmaps.conf.old
+	fi
+
 # Instalando o Polybar
 	sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev \
 		libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
 		libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto \
 		libxcb-xrm-dev libasound2-dev libmpdclient-dev libiw-dev \
-		libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb libxcb-ewmh2 -y
+		libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb	libxcb-ewmh2 \
+		ttf-unifont -y
 
 	git clone https://github.com/jaagr/polybar.git polybar-git
+
 	cd polybar-git
 		sudo ./build.sh
 		sudo make install
@@ -178,19 +207,3 @@ std_folder=$(pwd)
 	fi
 
 	sudo rm -r polybar-git
-
-# Instalando Siji-Font
-	echo -e "\n\n\n Instalando Font Siji - Polybar"
-	git clone https://github.com/stark/siji
-	cd siji
-		cp bdf/siji.bdf $HOME/.fonts
-		cp pcf/siji.pcf $HOME/.fonts
-		fc-cache -f
-	cd $std_folder
-	sudo rm -rf siji
-
-# Fazendo que o Ubuntu pare de proibir fonts bitmap com backup
-	echo -e "\n\n\n Tirando a opção do Ubuntu de proibir bitmaps fonts"
-	if [ -f /etc/fonts/70-no-bitmaps.conf ]; then
-		sudo mv /etc/fonts/70-no-bitmaps.conf /etc/fonts/70-no-bitmaps.conf.old
-	fi
