@@ -30,7 +30,7 @@
 [bar/wallbar]
 	;monitor = ${env:MONITOR:HDMI-1}
 	width = 100%
-	height = 22
+	height = 20
 	;offset-x = 1%
 	;offset-y = 100%
 	;radius = 6.0
@@ -53,7 +53,7 @@
 	module-margin-left = 1
 	module-margin-right = 1
 	
-	font-0 = Hack:pixelsize=9;1
+	font-0 = Hack:pixelsize=10;1
 	font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 	font-2 = siji:pixelsize=10;1
 	font-3 = "Font Awesome 5 Brands Regular:style=Regular:size=10;1"
@@ -76,8 +76,8 @@
 	;scroll-up = bspwm-desknext
 	;scroll-down = bspwm-deskprev
 	
-	;scroll-up = i3wm-wsnext
-	;scroll-down = i3wm-wsprev
+	scroll-up = i3wm-wsnext
+	scroll-down = i3wm-wsprev
 	
 	cursor-click = pointer
 	cursor-scroll = ns-resize
@@ -89,16 +89,17 @@
 [module/xkeyboard]
 	type = internal/xkeyboard
 	blacklist-0 = num lock
-	
-	format-prefix = " "
-	format-prefix-foreground = ${colors.foreground-alt}
+	blacklist-1 = caps lock
+	blacklist-2 = scroll lock
+
+	format = <label-layout>
+	format-prefix = " "
+	format-prefix-foreground = ${colors.foreground}
 	format-prefix-underline = ${colors.secondary}
 	
 	label-layout = %layout%
 	label-layout-underline = ${colors.secondary}
 	
-	label-indicator-padding = 2
-	label-indicator-margin = 1
 	label-indicator-background = ${colors.secondary}
 	label-indicator-underline = ${colors.secondary}
 	
@@ -211,17 +212,17 @@
 	type = internal/cpu
 	interval = 2
 	format-prefix = " "
-	format-prefix-foreground = ${colors.foreground-alt}
+	format-prefix-foreground = ${colors.foreground}
 	format-underline = #f90000
 	label = %percentage:2%%
 
 [module/memory]
 	type = internal/memory
 	interval = 2
-	format-prefix = " "
-	format-prefix-foreground = ${colors.foreground-alt}
+	format-prefix = " "
+	format-prefix-foreground = ${colors.foreground}
 	format-underline = #4bffdc
-	label = %percentage_used%%
+	label = %gb_used%/%gb_total%
 
 [module/wlan]
 	type = internal/network
@@ -280,29 +281,33 @@
 [module/pulseaudio]
 	type = internal/pulseaudio
 	
-	format-volume = <label-volume> <bar-volume>
-	label-volume = VOL %percentage%%
+;	format-volume = <label-volume> <bar-volume>
+	format-volume = <label-volume>
+	format-volume-underline = #0a6cf5
+
+	label-volume =  %percentage%%
 	label-volume-foreground = ${root.foreground}
 	
-	label-muted = 
-	label-muted-foreground = #666
+	label-muted =  MUTE
+	label-muted-foreground = ${root.foreground}
+	format-muted-underline = #0a6cf5
 	
-	bar-volume-width = 10
-	bar-volume-foreground-0 = #55aa55
-	bar-volume-foreground-1 = #55aa55
-	bar-volume-foreground-2 = #55aa55
-	bar-volume-foreground-3 = #55aa55
-	bar-volume-foreground-4 = #55aa55
-	bar-volume-foreground-5 = #f5a70a
-	bar-volume-foreground-6 = #ff5555
-	bar-volume-gradient = false
-	bar-volume-indicator = |
-	bar-volume-indicator-font = 2
-	bar-volume-fill = ─
-	bar-volume-fill-font = 2
-	bar-volume-empty = ─
-	bar-volume-empty-font = 2
-	bar-volume-empty-foreground = ${colors.foreground-alt}
+;	bar-volume-width = 10
+;	bar-volume-foreground-0 = #55aa55
+;	bar-volume-foreground-1 = #55aa55
+;	bar-volume-foreground-2 = #55aa55
+;	bar-volume-foreground-3 = #55aa55
+;	bar-volume-foreground-4 = #55aa55
+;	bar-volume-foreground-5 = #f5a70a
+;	bar-volume-foreground-6 = #ff5555
+;	bar-volume-gradient = false
+;	bar-volume-indicator = |
+;	bar-volume-indicator-font = 2
+;	bar-volume-fill = ─
+;	bar-volume-fill-font = 2
+;	bar-volume-empty = ─
+;	bar-volume-empty-font = 2
+;	bar-volume-empty-foreground = ${colors.foreground-alt}
 	
 [module/alsa]
 	type = internal/alsa
