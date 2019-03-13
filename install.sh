@@ -81,25 +81,37 @@ std_folder=$(pwd)
 	sudo apt update
 	sudo apt upgrade -y
 
+############################################################################
 # Programas basicos necessarios.
+############################################################################
+
 	echo -e "\n\n\nInstalando os programas basicos para a interface"
 	sudo apt install rxvt-unicode-256color curl build-essential compton \
 		acpi numlockx i3 rofi feh x11-xserver-utils pulseaudio-utils zsh vim\
 		fonts-hack-ttf scrot neofetch htop sysstat imagemagick gucharmap \
 		unzip kde-spectacle i3lock lxappearance python3-dev python-dev -y
 
+############################################################################
 # Configurando o rxvt-unicode
+############################################################################
+	
 	cp $std_folder/Xresources $HOME/.Xresources
 	xrdb $HOME/.Xresources
 
+	
+############################################################################
 # Instalando o oh-my-zsh e configurando o zsh.
+############################################################################
+
 	if [ ! -d $HOME/.oh-my-zsh ]; then
 		sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	fi
 
 	cp $std_folder/zshrc $HOME/.zshrc
 
+############################################################################
 # Copiando os arquivos de configuração do Vim
+############################################################################
 		
 	# Faz um copia caso não existir
 	if [ ! -f $HOME/.vimrc ] && [ ! -d $HOME/.vim ] ; then
@@ -112,15 +124,19 @@ std_folder=$(pwd)
 		echo -e "\n\n\nVim já está devidamente configurado"
 	fi
 
-
+############################################################################
 # Baixando programas necessarios via wget
+############################################################################
 		
 	# Primeiro verifica-se se os programas não estão baixados.
 	if [ ! -d $HOME/.fonts ] && [ ! -f /usr/bin/playerctl ]; then 
 		echo -e "\n\n\nBaixando arquivos necessarios via wget"
 		wget -i $std_folder/via_wget
 		
+		############################################################################
 		# Instalando o Playerctl - Via wget
+		############################################################################
+
 			echo -e "\n\n\nInstalando o Playerctl - Controlador de musica"
 			if [ -f $std_folder/playerctl-2.0.1_amd64.deb ]; then
 				sudo dpkg -i playerctl-2.0.1_amd64.deb
@@ -129,8 +145,10 @@ std_folder=$(pwd)
 			else
 				echo -e "\n\n\n Arquivo do PLAYERCTL não baixado \n\n\n"
 			fi
-	
+		############################################################################
 		# Instalando o Fonts Awesome
+		############################################################################
+
 			echo -e "\n\n\nInstalando o Fonts Awesome 5"
 			if [ -f $std_folder/fontawesome-free-5.7.2-desktop.zip ]; then
 				
@@ -152,7 +170,10 @@ std_folder=$(pwd)
 		echo -e "\n\n\n Playerctl e Awesome Fonts instalados \n\n\n"
 	fi
 
-# Instalando dependencias do i3-gaps
+############################################################################
+# Instalando o i3-gaps
+############################################################################
+
 	i3 --version | grep gaps
 	if [ ! $? -eq 0 ] ; then
 		echo -e "\n\n\n Instalando dependencias do i3-gaps"
@@ -161,8 +182,8 @@ std_folder=$(pwd)
 			libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
 			libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 \
 			libxcb-xrm-dev automake libxcb-shape0-dev -y 
-
-		# Instalando o i3-gaps
+		
+		# Instalando de fato o i3-gaps
 		echo -e "\n\n\n Instalando o i3-gaps"
 		git clone https://www.github.com/Airblader/i3 i3-gaps 
 		cd i3-gaps 
@@ -181,14 +202,17 @@ std_folder=$(pwd)
 		echo -e "\n\n\n i3-gaps já instalado "
 	fi
 
-# Configurando i3 - Copiando a pasta do i3 e Scripts
+	# Configurando i3 - Copiando a pasta do i3 e Scripts
 	cp -r $std_folder/i3 $HOME/.config
 	if [ ! -d $HOME/.Scripts ] ; then  
 		cp -r $std_folder/Scripts $HOME/.Scripts
 	fi
 	cp $std_folder/wallpaper.jpg $HOME/Pictures/
 
+############################################################################
 # Instalando Siji-Font
+############################################################################
+
 	echo -e "\n\n\n Instalando Font Siji - Polybar"
 	if [ ! -f $HOME/.fonts/siji.bdf ]; then	
 		git clone https://github.com/stark/siji
@@ -204,14 +228,20 @@ std_folder=$(pwd)
 		echo -e "\n\n\nFonte Siji já instalada\n\n\n"
 	fi
 
+############################################################################
 # Fazendo que o Ubuntu pare de proibir fonts bitmap com backup
+############################################################################
+
 	echo -e "\n\n\n Tirando a opção do Ubuntu de proibir bitmaps fonts"
 	if [ -f /etc/fonts/conf.d/70-no-bitmaps.conf ]; then
 		sudo mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.d/70-no-bitmaps.conf.old
 		fc-cache -f
 	fi
 
+############################################################################
 # Instalando o Polybar
+############################################################################
+
 	# Caso esse script for rodado novamente, ele não irá baixar e instalar
 	# novamente a polybar.	
 	if [ ! -f /usr/local/bin/polybar ]; then 
@@ -232,10 +262,10 @@ std_folder=$(pwd)
 	fi
 
 
-# Voltando para o Folder Padrao
+	# Voltando para o Folder Padrao
 	cd $std_folder
 
-# Configurando o Polybar
+	# Configurando o Polybar
 	echo -e "\n\n\n Adicionando os arquivos do Polybar "
 	if [ -d $std_folder/polybar ]; then
 		cp -r $std_folder/polybar $HOME/.config
@@ -243,8 +273,10 @@ std_folder=$(pwd)
 
 	sudo rm -r polybar-git
 
-
+############################################################################
 # Instalando pré-dependencias do Poweline
+############################################################################
+
 	sudo apt install python-pip
 
 	# Instalando o Powerline para todos.
@@ -257,7 +289,10 @@ std_folder=$(pwd)
 	cd $std_folder
 	rm -rf fonts
 
+############################################################################
 # Instalando PowerLine Extra Symbols
+############################################################################
+
 	git clone https://github.com/ryanoasis/powerline-extra-symbols
 	cd powerline-extra-symbolds
 		cp PowerlineExtraSymbols.otf $HOME/.fonts
@@ -265,5 +300,7 @@ std_folder=$(pwd)
 	rm -rf powerline-extra-symbols
 	fc-cache -f
 
-# Finalmente
+############################################################################
+#####  Finalmente
+############################################################################
 	echo -e "\n\n\n FINALMENTE PO#%@"
