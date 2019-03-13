@@ -53,11 +53,10 @@
 	module-margin-right = 0
 	
 	font-0 = Hack:pixelsize=10;1
-	font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-	font-2 = "Font Awesome 5 Brands Regular:style=Regular:size=10;1"
-	font-3 = "Font Awesome 5 Free Solid:style=Solid:size=10;1"
-	font-4 = "Font Awesome 5 Free Regular:style=Regular:size=10;1"
-	font-5 = "Standard Symbols:pixelsize=20"
+	font-1 = "Font Awesome 5 Brands Regular:style=Regular:size=10;2"
+	font-2 = "Font Awesome 5 Free Solid:style=Solid:size=10;2"
+	font-3 = "Font Awesome 5 Free Regular:style=Regular:size=10;2"
+	font-4 = "Terminess Powerline:style=Regular:pixelsize=20;3"
 	
 	modules-left = bspwm i3
 	modules-center = mpd
@@ -288,11 +287,11 @@
 
 [module/div]
 type = custom/text
-content = " %{B#444 F#222}%{B#222 F#444}%{B#444} "
+content = "%{T5} %{B#444 F#222}%{B#222 F#444}%{B#444} %{T-}"
 
 [module/div1]
 type = custom/text
-content = " %{B#222 F#444 T5}%{B#444 T-} "
+content = " %{B#222 F#444}%{T5}%{B#444} %{T-}"
 
 [settings]
 	screenchange-reload = true
