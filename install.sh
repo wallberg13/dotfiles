@@ -72,6 +72,7 @@ Pacotes instalados:
 	 - lxappearance
 	 - python3-dev
 	 - powerline-extra-symbols
+	 - tree
 "
 
 # Salvando o folder presente da pasta dotfiles.
@@ -89,7 +90,8 @@ std_folder=$(pwd)
 	sudo apt install rxvt-unicode-256color curl build-essential compton \
 		acpi numlockx i3 rofi feh x11-xserver-utils pulseaudio-utils zsh vim\
 		fonts-hack-ttf scrot neofetch htop sysstat imagemagick gucharmap \
-		unzip kde-spectacle i3lock lxappearance python3-dev python-dev -y
+		unzip kde-spectacle i3lock lxappearance python3-dev python-dev \
+		tree -y
 
 ############################################################################
 # Configurando o rxvt-unicode
