@@ -179,18 +179,12 @@ std_folder=$(pwd)
 	i3 --version | grep gaps
 	if [ ! $? -eq 0 ] ; then
 		echo -e "\n\n\n Instalando dependencias do i3-gaps"
-	#	sudo apt install git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
-	#		libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev \
-	#		libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
-	#		libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 \
-	#		libxcb-xrm-dev automake libxcb-shape0-dev -y 
+		sudo apt install git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
+		libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev \
+		libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
+		libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 \
+		libxcb-xrm-dev automake libxcb-shape0-dev -y 
 	
-		sudo apt install gcc make dh-autoreconf libxcb-keysyms1-dev libpango1.0-dev \
-			libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev \
-			libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev\
-		       	libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev\
-		       	libxcb-xrm0 libxcb-xrm-dev libxcb-shape0-dev -y
-
 		# Instalando de fato o i3-gaps
 		echo -e "\n\n\n Instalando o i3-gaps"
 		git clone https://www.github.com/Airblader/i3 i3-gaps 
@@ -253,18 +247,13 @@ std_folder=$(pwd)
 	# Caso esse script for rodado novamente, ele não irá baixar e instalar
 	# novamente a polybar.	
 	if [ ! -f /usr/local/bin/polybar ]; then 
-#		sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev \
-#			libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
-#			libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto \
-#			libxcb-xrm-dev libasound2-dev libmpdclient-dev libiw-dev \
-#			libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb	libxcb-ewmh2 \
-#			ttf-unifont -y
-		sudo apt install libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev\
-		       	libasound2-dev libpulse-dev i3-wm libjsoncpp-dev libmpdclient-dev\
-			libcurl4-openssl-dev libnl-genl-3-dev build-essential git cmake\
-		       	cmake-data pkg-config libcairo2-dev libxcb1-dev libxcb-util0-dev\
-		       	libxcb-randr0-dev libxcb-composite0-dev python-xcbgen xcb-proto\
-		       	libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev -y
+		sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev \
+			libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
+			libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto \
+			libxcb-xrm-dev libasound2-dev libmpdclient-dev libiw-dev \
+			libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb	libxcb-ewmh2 \
+			ttf-unifont -y
+
 		git clone https://github.com/jaagr/polybar.git polybar-git
 
 		cd polybar-git
