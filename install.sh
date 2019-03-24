@@ -73,6 +73,7 @@ Pacotes instalados:
 	 - python3-dev
 	 - powerline-extra-symbols
 	 - tree
+	 - vim-nox
 "
 
 # Salvando o folder presente da pasta dotfiles.
@@ -91,7 +92,7 @@ std_folder=$(pwd)
 		acpi numlockx i3 rofi feh x11-xserver-utils pulseaudio-utils zsh vim\
 		fonts-hack-ttf scrot neofetch htop sysstat imagemagick gucharmap \
 		unzip kde-spectacle i3lock lxappearance python3-dev python-dev \
-		tree -y
+		tree vim-nox -y
 
 ############################################################################
 # Configurando o rxvt-unicode
@@ -305,6 +306,8 @@ std_folder=$(pwd)
 ############################################################################
 #####  Instalando os editores snap. 
 ############################################################################
+
+	sudo apt install snap
 	sudo snap install android-studio --classic
 	sudo snap install vscode --classic
 	sudo snap install sublime-text --classic
