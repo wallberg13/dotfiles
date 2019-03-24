@@ -286,22 +286,27 @@ std_folder=$(pwd)
 	sudo pip install setuptools powerline-status
 
 	# Instalando as fontes
-	git clone https://github.com/powerline/fonts.git --depth=1
-	cd fonts
-		./install.sh
-	cd $std_folder
-	rm -rf fonts
+	resp=$(fc-list | grep -e "Powerline" | wc -l)
+	if [ $resp -eq 0 ]; then
+		git clone https://github.com/powerline/fonts.git --depth=1
+		cd fonts
+			./install.sh
+		cd $std_folder
+		rm -rf fonts
+	fi
 
 ############################################################################
 # Instalando PowerLine Extra Symbols
 ############################################################################
-
-	git clone https://github.com/ryanoasis/powerline-extra-symbols
-	cd powerline-extra-symbols
-		cp PowerlineExtraSymbols.otf $HOME/.fonts
-	cd $std_folder
-	rm -rf powerline-extra-symbols
-	fc-cache -f
+	resp=$(fc-list | grep -e "Powerline Extra Symbols" | wc -l)
+	if [ $resp -eq 0 ]; then
+		git clone https://github.com/ryanoasis/powerline-extra-symbols
+		cd powerline-extra-symbols
+			cp PowerlineExtraSymbols.otf $HOME/.fonts
+		cd $std_folder
+		rm -rf powerline-extra-symbols
+		fc-cache -f
+	fi
 
 ############################################################################
 #####  Instalando os editores snap. 
