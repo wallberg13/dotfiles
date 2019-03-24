@@ -301,7 +301,13 @@ std_folder=$(pwd)
 	cd $std_folder
 	rm -rf powerline-extra-symbols
 	fc-cache -f
-
+############################################################################
+#####  Instalando os editores snap. 
+############################################################################
+	sudo snap install android-studio --classic
+	sudo snap install vscode --classic
+	sudo snap install sublime-text --classic
+	sudo snap install spotify
 ############################################################################
 #####  Finalmente
 ############################################################################
