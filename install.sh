@@ -301,6 +301,7 @@ std_folder=$(pwd)
 	cd $std_folder
 	rm -rf powerline-extra-symbols
 	fc-cache -f
+
 ############################################################################
 #####  Instalando os editores snap. 
 ############################################################################
@@ -308,6 +309,13 @@ std_folder=$(pwd)
 	sudo snap install vscode --classic
 	sudo snap install sublime-text --classic
 	sudo snap install spotify
+
+############################################################################
+#####  Configuração de Fonts
+############################################################################
+
+	cp $std_folder/fonts.config $HOME/.fonts.config
+
 ############################################################################
 #####  Finalmente
 ############################################################################
