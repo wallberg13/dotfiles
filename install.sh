@@ -251,7 +251,7 @@ std_folder=$(pwd)
 			libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
 			libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto \
 			libxcb-xrm-dev libasound2-dev libmpdclient-dev libiw-dev \
-			libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb	libxcb-ewmh2 \
+			libcurl4-openssl-dev libpulse-dev libxcb-composite0-dev xcb libxcb-ewmh2 \
 			ttf-unifont -y
 
 		git clone https://github.com/jaagr/polybar.git polybar-git
@@ -296,7 +296,7 @@ std_folder=$(pwd)
 ############################################################################
 
 	git clone https://github.com/ryanoasis/powerline-extra-symbols
-	cd powerline-extra-symbolds
+	cd powerline-extra-symbols
 		cp PowerlineExtraSymbols.otf $HOME/.fonts
 	cd $std_folder
 	rm -rf powerline-extra-symbols

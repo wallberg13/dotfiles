@@ -52,7 +52,7 @@
 	module-margin-left = 0
 	module-margin-right = 0
 	
-	font-0 = Hack:pixelsize=10;1
+	font-0 = "Hack:style=Regular:size=10;1"
 	font-1 = "Font Awesome 5 Brands Regular:style=Regular:size=10;2"
 	font-2 = "Font Awesome 5 Free Solid:style=Solid:size=10;2"
 	font-3 = "Font Awesome 5 Free Regular:style=Regular:size=10;2"
@@ -60,10 +60,9 @@
 	
 	modules-left = bspwm i3
 	modules-center = 
-	modules-right = div1 pulseaudio div xkeyboard div memory div cpu div wlan eth div battery div date div powermenu div2
+	modules-right = div1 pulseaudio div xkeyboard div memory div cpu div eth div battery div date div powermenu div2
 	
 	tray-position = right
-	tray-padding = 2
 	tray-background = #444
 	
 	scroll-up = i3wm-wsnext
@@ -164,25 +163,20 @@
 
 [module/wlan]
 	type = internal/network
-	interface = net1
+	interface = wlp3s0
 	interval = 3.0
 	
-	format-connected = <ramp-signal> <label-connected>
+	format-connected = <label-connected>
 	format-connected-underline = #9f78e1
+	format-connected-prefix = " "
+	format-connected-foreground = ${colors.foreground}
 	label-connected = %local_ip%
 	
 	format-disconnected = 
 
-	ramp-signal-0 = 
-	ramp-signal-1 = 
-	ramp-signal-2 = 
-	ramp-signal-3 = 
-	ramp-signal-4 = 
-	ramp-signal-foreground = ${colors.foreground}
-	
 [module/eth]
 	type = internal/network
-	interface = enp0s3
+	interface = enp2s0
 	interval = 3.0
 	
 	format-connected-underline = #55aa55
@@ -304,7 +298,7 @@ content = "%{B#444} "
 	;compositing-background = screen
 	;compositing-foreground = source
 	;compositing-border = over
-	pseudo-transparency = true
+	;pseudo-transparency = true
 	
 [global/wm]
 	margin-top = 5
