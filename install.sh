@@ -307,7 +307,7 @@ std_folder=$(pwd)
 #####  Instalando os editores snap. 
 ############################################################################
 
-	sudo apt install snap
+	sudo apt install snapd
 	sudo snap install android-studio --classic
 	sudo snap install vscode --classic
 	sudo snap install sublime-text --classic
