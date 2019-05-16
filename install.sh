@@ -314,7 +314,7 @@ std_folder=$(pwd)
 
 	sudo apt install snapd
 	sudo snap install android-studio --classic
-	sudo snap install vscode --classic
+	sudo snap install code --classic
 	sudo snap install sublime-text --classic
 	sudo snap install spotify
 
