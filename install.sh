@@ -153,18 +153,18 @@ std_folder=$(pwd)
 		############################################################################
 
 			echo -e "\n\n\nInstalando o Fonts Awesome 5"
-			if [ -f $std_folder/fontawesome-free-5.7.2-desktop.zip ]; then
+			if [ -f $std_folder/fontawesome-free-5.8.2-desktop.zip ]; then
 				
-				font_file_name=fontawesome-free-5.7.2-desktop.zip
+				font_file_name=fontawesome-free-5.8.2-desktop.zip
 				unzip $font_file_name
 				rm $font_file_name # Rm zip file
 	
-				cd fontawesome-free-5.7.2-desktop/otfs
+				cd fontawesome-free-5.8.2-desktop/otfs
 					mkdir -p $HOME/.fonts # Mkdir if not exists
 					cp *.otf $HOME/.fonts # Copy to $HOME dir fonts
 					fc-cache -f # Update fonts cache
 				cd $std_folder
-				sudo rm -rf fontawesome-free-5.7.2-desktop # rm dir created.
+				sudo rm -rf fontawesome-free-5.8.2-desktop # rm dir created.
 	
 			else
 				echo -e "\n\n\nArquivo do FONT AWESOME 5 não baixado\n\n\n"
