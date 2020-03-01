@@ -16,8 +16,9 @@ exec --no-startup-id numlockx
 exec --no-startup-id dropbox start &
 exec --no-startup-id xset -b
 exec --no-startup-id nm-applet
-exec --no-startup-id ~/.Scripts/initi3.sh
+exec_always --no-startup-id ~/.Scripts/initi3.sh
 exec_always --no-startup-id compton
+exec_always --no-startup-id ~/.Scripts/background.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 set $mod Mod1
@@ -39,7 +40,6 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 #Wallpaper
-exec_always --no-startup-id ~/.Scripts/background.sh
 
 # Monitores - UTFPR e Casa
 bindsym $mod+u exec ~/.Scripts/displayu.sh # UTF
