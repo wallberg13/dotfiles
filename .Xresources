@@ -1,0 +1,52 @@
+!! Fontes
+URxvt.font: xft:FiraCode:pixelsize=14
+!! Aparencia - Meu tema Mate
+URxvt.scrollBar: false
+URxvt*foreground: #E9B96E
+*color0:  #2E3436
+*color1:  #cc0000
+*color2:  #4E9A06
+*color3:  #C4A000
+*color4:  #3465A4
+*color5:  #75507B
+*color6:  #06989A
+*color7:  #D3D7CF
+*color8:  #555753
+*color9:  #EF2929
+*color10: #8AE234
+*color11: #FCE94F
+*color12: #729FCF
+*color13: #AD7FA8
+*color14: #34E2E2
+*color15: #EEEEEC
+
+!! Transparencia
+URxvt*depth: 32
+URxvt.background: [80]#000000
+!0000/0000/0200/ce00
+
+!! Extensões
+URxvt.perl-ext-common: fullscreen,default,font-size,matcher,keyboard-select
+URxvt.keysym.F11: perl:fullscreen:switch
+
+URxvt.keysym.M-Escape: perl:keyboard-select:active
+
+!! URLs
+URxvt.keysym.M-u:   perl:url-select:select_next
+URxvt.url-select.button: 2
+URxvt.url-select.underline: false
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+
+!! Disable ctrl+shift
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+!! Copiar e colar
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+
+Xcursor.size: 24
+!! Disable ctrl+shift
+!URxvt.iso14755: false
+!URxvt.iso14755_52: false
