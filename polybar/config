@@ -35,7 +35,7 @@
 	
 [bar/wallbar]
 	width = 100%
-	height = 20
+	height = 17
 	
 	fixed-center = true
 	bottom = true
@@ -56,12 +56,12 @@
 	font-0 = "Hack:style=Regular:size=10;1"
 	font-1 = "Font Awesome 5 Brands Regular:style=Regular:size=10;2"
 	font-2 = "Font Awesome 5 Free Solid:style=Solid:size=10;2"
-	font-3 = "Font Awesome 5 Free Regular:style=Regular:size=10;2"
-	font-4 = "Terminess Powerline:style=Regular:pixelsize=20;3"
+	font-3 = FontAwesome5FreeRegular:style=Regular:size=10;2
+	font-4 = TerminessPowerline:style=Regular:pixelsize=17;0
 	
 	modules-left = bspwm i3
 	modules-center = 
-	modules-right = div1 pulseaudio div xkeyboard div memory div cpu div eth div battery div date div powermenu div2
+	modules-right =  pulseaudio xkeyboard memory cpu eth wlan battery date powermenu final 
 	
 	tray-position = right
 	tray-background = #444
@@ -99,7 +99,7 @@
 	
 	modules-left = bspwm i3
 	modules-center = 
-	modules-right = div1 pulseaudio div xkeyboard div memory div cpu div eth div battery div date div powermenu div2
+	modules-right = pulseaudio xkeyboard memory cpu eth wlan battery date powermenu final 
 	
 	tray-position = right
 	tray-background = #444
@@ -121,11 +121,11 @@
 	blacklist-2 = scroll lock
 
 	format = <label-layout>
-	format-prefix = " "
-	format-prefix-foreground = ${colors.foreground}
-	format-prefix-underline = ${colors.secondary}
-	
-	label-layout = %layout%
+	format-prefix = ""
+	format-prefix-foreground = ${colors.background}
+	format-prefix-background = ${colors.background-alt}
+
+	label-layout = "  %layout% "
 	label-layout-underline = ${colors.secondary}
 	
 	label-indicator-background = ${colors.secondary}
@@ -157,7 +157,7 @@
 	wrapping-scroll = false
 
 	; Only show workspaces on the same output as the bar
-	;pin-workspaces = true
+	pin-workspaces = true
 
 	label-mode-padding = 2
 	label-mode-foreground = #000
@@ -187,43 +187,61 @@
 [module/cpu]
 	type = internal/cpu
 	interval = 2
-	format-prefix = " "
-	format-prefix-foreground = ${colors.foreground}
-	format-underline = #f90000
-	label = %percentage:2%%
+	format-prefix = ""
+	format-prefix-foreground = ${colors.background}
+	format-prefix-background = ${colors.background-alt} 
+	label ="  %percentage:2%% "
+	label-background = ${colors.background}
 
 [module/memory]
 	type = internal/memory
 	interval = 2
-	format-prefix = " "
-	format-prefix-foreground = ${colors.foreground}
+	format-prefix = ""
+	format-prefix-foreground = ${colors.background-alt}
+	format-prefix-background = ${colors.background}
 	format-underline = #4bffdc
-	label = %gb_used%/%gb_total%
+	label = "  %gb_used%/%gb_total% "
+	label-background = ${colors.background-alt}
 
 [module/wlan]
 	type = internal/network
 	interface = wlp3s0
 	interval = 3.0
 	
-	format-connected = <label-connected>
-	format-connected-underline = #9f78e1
-	format-connected-prefix = " "
-	format-connected-foreground = ${colors.foreground}
-	label-connected = %local_ip%
+	format-connected-prefix = ""
+	format-connected-prefix-foreground = ${colors.background}
+	format-connected-prefix-background = ${colors.background-alt}
 	
-	format-disconnected = 
-
+	label-connected = "  %local_ip% "
+	label-connected-foreground = ${colors.foreground}
+	label-connected-background = ${colors.background}
+	
+	format-disconnected-prefix = ""
+	format-disconnected-prefix-foreground = ${colors.background}
+	format-disconnected-prefix-background = ${colors.background-alt}
+	
+	label-disconnected = " Not Connected "
+	label-disconnected-foreground = ${colors.foreground}
+	label-disconnected-background = ${colors.background}
+	
 [module/eth]
 	type = internal/network
 	interface = enp2s0
 	interval = 3.0
 	
-	format-connected-underline = #55aa55
-	format-connected-prefix = " "
-	format-connected-prefix-foreground = ${colors.foreground}
-	label-connected = %local_ip%
+	format-connected-prefix = ""
+	format-connected-prefix-foreground = ${colors.background-alt}
+	label-connected = "  %local_ip% "
+	label-connected-background = ${colors.background-alt}
+	label-connected-foreground = ${colors.foreground}
+
 	
-	format-disconnected =
+	format-disconnected-prefix = ""
+	format-disconnected-prefix-foreground = ${colors.background-alt}
+	label-disconnected = " Not Connected "
+	label-disconnected-background = ${colors.background-alt}
+	label-disconnected-foreground = ${colors.foreground}
+
 
 [module/date]
 	type = internal/date
@@ -235,22 +253,32 @@
 	time = %H:%M
 	time-alt = %H:%M:%S
 	
-	format-prefix =	 
-	format-prefix-foreground = ${colors.foreground}
-	format-underline = #0a6cf5
+	format-prefix =	"" 
+	format-prefix-foreground = ${colors.background-alt}
+	format-prefix-background = ${colors.background}
 	
-	label = %date% %time%
+	label = "  %date% %time% "
+	label-foreground = ${colors.foreground}
+	label-background = ${colors.background-alt}
 
+[module/final]
+	type = custom/text
+	content = "▉"
+	content-foreground = ${colors.background-alt}
+	content-background = ${colors.background}
+	
 [module/pulseaudio]
 	type = internal/pulseaudio
-	
-	format-volume = <label-volume>
-	format-volume-underline = #0a6cf5
 
-	label-volume =  %percentage%%
+	format-volume-prefix = ""
+	format-volume-prefix-foreground = ${colors.background-alt}
+	format-volume-prefix-background = ${colors.background}
+	format-volume = <label-volume>
+	label-volume ="  %percentage%% "
 	label-volume-foreground = ${root.foreground}
+	label-volume-background = ${colors.background-alt}
 	
-	label-muted =  MUTE
+	label-muted ="  MUTE "
 	label-muted-foreground = ${root.foreground}
 	format-muted-underline = #0a6cf5
 	
@@ -296,10 +324,12 @@
 	expand-right = true
 	
 	format-spacing = 1
-	
-	label-open = 
+	format-prefix=""
+	format-prefix-foreground=${colors.background}
+	format-prefix-background=${colors.background-alt}
+	label-open = "  "
 	label-open-foreground = ${colors.secondary}
-	label-close =  cancel
+	label-close = "  cancel "
 	label-close-foreground = ${colors.secondary}
 	label-separator = |
 	label-separator-foreground = ${colors.foreground-alt}
@@ -318,18 +348,6 @@
 	menu-2-0-exec = shutdown now
 	menu-2-1 = cancel
 	menu-2-1-exec = menu-open-0
-
-[module/div]
-type = custom/text
-content = "%{T5} %{B#444 F#222}%{B#222 F#444}%{B#444} %{T-}"
-
-[module/div1]
-type = custom/text
-content = " %{B#222 F#444}%{T5}%{B#444} %{T-}"
-
-[module/div2]
-type = custom/text
-content = "%{B#444} "
 
 [settings]
 	screenchange-reload = true
