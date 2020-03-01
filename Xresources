@@ -1,5 +1,5 @@
 !! Fontes
-URxvt.font: xft:hack:pixelsize=14
+URxvt.font: xft:FiraCode:pixelsize=14
 !! Aparencia - Meu tema Mate
 URxvt.scrollBar: false
 URxvt*foreground: #E9B96E
@@ -46,6 +46,7 @@ URxvt.iso14755_52: false
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 
+Xcursor.size: 24
 !! Disable ctrl+shift
 !URxvt.iso14755: false
 !URxvt.iso14755_52: false
