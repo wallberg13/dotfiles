@@ -276,8 +276,12 @@
 	label-volume-foreground = ${root.foreground}
 	label-volume-background = ${colors.background-alt}
 	
+	format-muted-prefix = ""
+	format-muted-prefix-foreground = ${colors.background-alt}
+	format-muted-prefix-background = ${colors.background}
 	label-muted ="  MUTE "
 	label-muted-foreground = ${root.foreground}
+	label-muted-background = ${colors.background-alt}
 	format-muted-underline = #0a6cf5
 	
 [module/battery]
