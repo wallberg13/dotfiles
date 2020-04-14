@@ -1,0 +1,81 @@
+{
+  // Tema do VSCODE
+  "workbench.colorTheme": "Dracula",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.editor.labelFormat": "short",
+
+  //Configs do Terminal Terminal
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.scrollback": 1000000,
+
+  // Configurando as opções do Editor.
+  "editor.tabSize": 2,
+  "editor.fontSize": 15,
+  // "editor.lineHeight": 18, --> Ficou muito ruim
+  "editor.fontFamily": "'Fira Code', 'Emoji One'",
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.renderControlCharacters": false,
+  "editor.renderWhitespace": "all",
+  "editor.suggestSelection": "first",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.minimap.enabled": false,
+  "editor.parameterHints.enabled": false,
+
+  // Opções do Explorer
+  "explorer.compactFolders": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+
+  // Opções de Extensões
+  "extensions.ignoreRecommendations": true,
+
+  // Opções de Linguagem
+  // Correção ao mover um arquivo de pasta
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "typescript.updateImportsOnFileMove.enabled": "never",
+
+  // Breadcrumbs --> NOT
+  "breadcrumbs.enabled": false,
+
+  "editor.rulers": [80, 120],
+
+  // Autosave dos arquivo. Na Mudança de Foco
+  "files.autoSave": "onFocusChange",
+
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  // Autocomplete de HTML em JS
+  "emmet.syntaxProfiles": { "javascript": "jsx" },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+
+  "[javascriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+
+  "window.zoomLevel": 0
+}
+
