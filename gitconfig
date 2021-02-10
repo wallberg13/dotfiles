@@ -1,0 +1,24 @@
+[user]
+	email = wallbergmirandamorais@gmail.com
+	name = Wall Berg Morais
+
+[core]
+	editor = vim # Faz com que na hora do commit, ele abra um editor.
+	#excludesfile = ~/.gitignore_global -> Ignorando pastas
+
+[color]
+	ui = true
+
+[alias]
+	pom = push origin master
+	ci = commit -s
+	co = checkout
+	cm = checkout master
+	cb = checkout -b
+	st = status -sb
+	sf = show --name-only
+	unstage = reset HEAD --
+	undo = checkout --
+	rollback = reset --soft HEAD~1
+	rollforward = commit -c ORIG_HEAD
+	conflicts = !git ls-files -u | cut -f 2 | sort -u
