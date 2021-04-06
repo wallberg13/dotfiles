@@ -1,0 +1,66 @@
+{
+  "border": "normal",
+  "floating": "auto_off",
+  "layout": "splith",
+  "percent": 0.7,
+  "type": "con",
+  "nodes": [
+    {
+      "border": "pixel",
+      "current_border_width": 1,
+      "floating": "auto_off",
+      "geometry": {
+        "height": 436,
+        "width": 724,
+        "x": 0,
+        "y": 0
+      },
+      "name": "sir-berg@death-star: ~",
+      "percent": 0.5,
+      "swallows": [
+        {
+          "class": "^URxvt$"
+        }
+      ],
+      "type": "con"
+    },
+    {
+      "border": "pixel",
+      "current_border_width": 1,
+      "floating": "auto_off",
+      "geometry": {
+        "height": 1052,
+        "width": 1280,
+        "x": 0,
+        "y": 0
+      },
+      "name": "Mozilla Firefox",
+      "percent": 0.5,
+      "swallows": [
+        {
+          "class": "^Firefox$"
+        }
+      ],
+      "type": "con"
+    }
+  ]
+}
+{
+  "border": "pixel",
+  "current_border_width": 1,
+  "floating": "auto_off",
+  "geometry": {
+    "height": 436,
+    "width": 724,
+    "x": 0,
+    "y": 0
+  },
+  "name": "sir-berg@death-star: ~",
+  "percent": 0.3,
+  "swallows": [
+    {
+      "class": "^URxvt$"
+    }
+  ],
+  "type": "con"
+}
