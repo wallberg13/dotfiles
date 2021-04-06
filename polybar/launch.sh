@@ -14,4 +14,9 @@ if [ "$resp" == "connected" ]; then
 	polybar wallbar2 &
 fi
 
+resp=$(xrandr | grep -e "DVI-I-2-1" | cut -d" " -f2)
+if [ "$resp" == "connected" ]; then
+	polybar wallbar3 &
+fi
+
 echo "Bars launched..."
